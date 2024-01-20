@@ -1,26 +1,30 @@
 <app-nav></app-nav>
-<div class="d-flex justify-content-center my-4">
-  <div class="card w-50">
-    <img [src]="noticia.imagen" class="card-img-top" alt="{{ noticia.titulo }}">
-    <div class="card-body">
-      <h5 class="card-title">{{ noticia.titulo }}</h5>
-      <p class="card-text">{{ noticia.descripcion }}</p>
-      <p class="card-text">{{noticia.fechaPublicaciones}}</p>
-      <button class="btn btn-primary" (click)="volver()">Volver</button>
-    </div>
-  </div>
-</div>
 
-<div class="container mb-2">
-  <h2 class="text-center">Noticias Recomendadas</h2>
-  <div class="d-flex justify-content-around flex-wrap">
-    <div class="card m-2" style="width: 18rem; cursor: pointer;" *ngFor="let noticiaRecomendada of noticiasRecomendadas" (click)="noticiaRecomendada.id !== undefined && obtenerNoticia(noticiaRecomendada.id)">
-      <img [src]="noticiaRecomendada.imagen" class="card-img-top" alt="{{ noticiaRecomendada.titulo }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ noticiaRecomendada.titulo }}</h5>
-        <p class="card-text">{{ noticiaRecomendada.descripcion }}</p>
+<div class="d-flex justify-content-center my-4">
+  <div class="card w-75 border-0 shadow">
+    <img [src]="noticia.imagen" class="card-img-top" alt="{{ noticia.titulo }}" style="object-fit: cover; height: 300px;">
+    <div class="card-body">
+      <h5 class="card-title mb-3">{{ noticia.titulo }}</h5>
+      <p class="card-text mb-3">{{ noticia.descripcion }}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="card-text" style="color: #888;">Fecha de Publicación: {{ noticia.fechaPublicaciones | date: 'dd/MM/yyyy' }}</p>
+        <button class="btn btn-primary px-3 p-2" (click)="volver()">Regresar</button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container mb-3">
+  <h2 class="text-center">Noticias Recomendadas</h2>
+  <div class="d-flex justify-content-around flex-wrap">
+    <div class="card border-0 shadow m-2" style="width: 18rem;" *ngFor="let noticiaRecomendada of noticiasRecomendadas">
+      <img [src]="noticiaRecomendada.imagen" class="card-img-top" alt="{{ noticiaRecomendada.titulo }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ noticiaRecomendada.titulo }}</h5>
+        <p class="card-text">{{ noticia.descripcion | slice:0:70 }}... <a class="text-secondary" style="cursor: pointer;" (click)="noticiaRecomendada.id !== undefined && obtenerNoticia(noticiaRecomendada.id)">Ver más</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 

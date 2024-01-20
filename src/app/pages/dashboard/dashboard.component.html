@@ -1,23 +1,27 @@
 <app-nav></app-nav>
 
-<div *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</div>
+<div *ngIf="userLoginOn" style="margin: 0; padding: 0;">
 
-<div *ngIf="userLoginOn">
-
-  <p class="alert alert-success">Usuario Autenticado</p>
+  <h2 class="text-center text-black-50 mt-4">Últimas Noticias</h2>
 
   <div class="row">
-    <div *ngFor="let noticia of noticias" class="col-md-4">
-      <div class="card">
-        <div style="cursor: pointer;" (click)="obtenerNoticia(noticia.id)">
+    <div *ngFor="let noticia of noticias" class="col-md-4 mx-auto">
+      <div class="card border-0 shadow">
           <img [src]="noticia.imagen" class="card-img-top" alt="{{ noticia.titulo }}">
           <div class="card-body">
             <h5 class="card-title">{{ noticia.titulo }}</h5>
-            <p class="card-text">{{ noticia.descripcion }}</p>
+            <p class="card-text">{{ noticia.descripcion | slice:0:70 }}... <a class="text-secondary" style="cursor: pointer;" (click)="obtenerNoticia(noticia.id)">Ver más</a></p>
           </div>
-        </div>
       </div>
     </div>
   </div>
 
+  <app-footer></app-footer>
+
 </div>
+
+
+
+
+
+

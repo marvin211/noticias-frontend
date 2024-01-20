@@ -7,7 +7,7 @@ import { DetallesNoticiaComponent } from './pages/detalles-noticia/detalles-noti
 const routes: Routes = [
   //Rutas
   {path:'',redirectTo:'/inicio', pathMatch:'full'},
-  {path:'inicio',component:DashboardComponent},
+  {path:'inicio', component:DashboardComponent},
   {path:'detalles/:id',component:DetallesNoticiaComponent},
   {path:'iniciar-sesion',component:LoginComponent}
 ];

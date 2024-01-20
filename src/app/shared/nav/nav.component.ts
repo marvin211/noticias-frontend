@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
 
   logout(){
     this.loginService.logout(); //llamamos al metodo logout
-    this.router.navigate(['/inicio']) //navegamos a la ruta /inicio
+    this.router.navigate(['/iniciar-sesion']) //navegamos a la ruta /iniciar-sesion
   }
 
 }

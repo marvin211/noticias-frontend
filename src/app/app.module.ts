@@ -22,6 +22,7 @@ import { DetallesNoticiaComponent } from './pages/detalles-noticia/detalles-noti
     LoginComponent,
     NavComponent,
     DetallesNoticiaComponent,
+
   ],
   imports: [
     BrowserModule,
