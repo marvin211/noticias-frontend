@@ -1,4 +1,4 @@
-<!-- El [formGroup]="loginForm" es para que el formulario sepa que tiene que usar el FormGroup que definimos en el componente -->
+
 <form [formGroup]="loginForm">
     <p class="text-danger">{{loginError}}</p>
     <div class="mb-3">
@@ -7,11 +7,9 @@
       <!-- si el campo email es invalido y ha sido tocado o modificado entonces mostrar el mensaje de error -->
         <div *ngIf="email.invalid && (email.dirty || email.touched)"
             class="text-danger">
-            <!-- si el campo email es requerido entonces mostrar el mensaje de error -->
             <div *ngIf="email.errors?.['required']">
                 El Email es requerido.
             </div>
-            <!-- si el campo email no tiene un formato valido entonces mostrar el mensaje de error -->
             <div *ngIf="email.errors?.['email']">
                 El Email debe tener un formato válido.
             </div>
@@ -24,7 +22,6 @@
         <!-- si el campo password es invalido y ha sido tocado o modificado entonces mostrar el mensaje de error -->
         <div *ngIf="password.invalid && (password.dirty || password.touched)"
             class="text-danger">
-            <!-- si el campo password es requerido entonces mostrar el mensaje de error -->
             <div *ngIf="password.errors?.['required']">
                 El Password es requerido.
             </div>

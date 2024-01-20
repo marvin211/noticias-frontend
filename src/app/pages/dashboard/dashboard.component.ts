@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
-import { User } from 'src/app/services/auth/user';
 import { Noticias } from 'src/app/services/noticias';
 import { NoticiasService } from 'src/app/services/noticias.service';
 
@@ -17,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private noticiaServicio:NoticiasService, private loginService:LoginService, private enrutador: Router) { }
 
-  ngOnInit(): void { //se ejecuta cuando el componente se ha inicializado
+  ngOnInit(): void {
 
     this.loginService.currentUserLoginOn.subscribe({
       next:(userLoginOn) => {

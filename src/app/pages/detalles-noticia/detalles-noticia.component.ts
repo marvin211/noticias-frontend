@@ -10,7 +10,7 @@ import { NoticiasService } from 'src/app/services/noticias.service';
 })
 export class DetallesNoticiaComponent {
 
-  noticia!: Noticias;
+  noticia: Noticias = {} as Noticias;
   noticiasRecomendadas: Noticias[] = []; // Agrega este campo
   id!: number;
 

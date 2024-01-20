@@ -13,12 +13,12 @@
           <li class="nav-item">
             <a class="nav-link active" routerLink="/inicio">Categorias</a>
           </li>
-          <!-- Si el usuario no esta logueado entonces se muestra el enlace de iniciar sesion -->
+          <!-- No esta logueado se muestra el enlace de iniciar sesion -->
           <li *ngIf="!userLoginOn" class="nav-item">
             <a class="nav-link" routerLink="/iniciar-sesion">Iniciar Sesión</a>
           </li>
 
-          <!-- Si el usuario esta logueado entonces se muestra el enlace de cerrar sesion -->
+          <!-- Si esta logueado muestra el enlace de cerrar sesion -->
           <li *ngIf="userLoginOn" class="nav-item">
             <a class="nav-link" (click)="logout()"  routerLink="/inicio">Cerrar Sesión</a>
           </li>
