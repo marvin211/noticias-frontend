@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+
+<div *ngIf="!userLoginOn" class="alert alert-danger">Usuario NO autenticado</div>
+
+<div *ngIf="userLoginOn">
+
+  <p class="alert alert-success">Usuario Autenticado</p>
+
+  <div class="row">
+    <div *ngFor="let noticia of noticias" class="col-md-4">
+      <div class="card">
+        <div style="cursor: pointer;" (click)="obtenerNoticia(noticia.id)">
+          <img [src]="noticia.imagen" class="card-img-top" alt="{{ noticia.titulo }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ noticia.titulo }}</h5>
+            <p class="card-text">{{ noticia.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

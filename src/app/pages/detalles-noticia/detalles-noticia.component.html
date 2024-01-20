@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+<div class="d-flex justify-content-center my-4">
+  <div class="card w-50">
+    <img [src]="noticia.imagen" class="card-img-top" alt="{{ noticia.titulo }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ noticia.titulo }}</h5>
+      <p class="card-text">{{ noticia.descripcion }}</p>
+      <p class="card-text">{{noticia.fechaPublicaciones}}</p>
+      <button class="btn btn-primary" (click)="volver()">Volver</button>
+    </div>
+  </div>
+</div>
