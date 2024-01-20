@@ -22,4 +22,10 @@ export class NoticiasService {
     return this.clienteHttp.get<Noticias>(this.urlBase + "/noticias/detalles/" + id);
   }
 
+  //Obtener las noticias recomendadas
+  public obtenerNoticiasRecomendadas(): Observable<Noticias[]> {
+    return this.clienteHttp.get<Noticias[]>(this.urlBase + "/noticias/recomendadas");
+  }
+
+
 }

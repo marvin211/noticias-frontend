@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Noticias } from 'src/app/services/noticias';
 import { NoticiasService } from 'src/app/services/noticias.service';
 
@@ -11,6 +11,7 @@ import { NoticiasService } from 'src/app/services/noticias.service';
 export class DetallesNoticiaComponent {
 
   noticia!: Noticias;
+  noticiasRecomendadas: Noticias[] = []; // Agrega este campo
   id!: number;
 
   constructor(
@@ -20,13 +21,26 @@ export class DetallesNoticiaComponent {
   ) { }
 
   ngOnInit(): void {
+    this.ruta.params.subscribe((params: Params) => {
+      this.id = params['id'];
 
-    this.id = this.ruta.snapshot.params['id'];//Obtenemos el id que estamos recibiendo en la ruta
+      this.noticiaServicio.obtenerNoticiaPorId(this.id).subscribe(
+        {
+          next: noti => {
+            this.noticia = noti;
+          },
+          error: err => {
+            console.log(err);
+          }
+        }
+      );
+    });
 
-    this.noticiaServicio.obtenerNoticiaPorId(this.id).subscribe(
+    // Obtiene las noticias recomendadas
+    this.noticiaServicio.obtenerNoticiasRecomendadas().subscribe(
       {
-        next: noti => {
-          this.noticia = noti;
+        next: noticias => {
+          this.noticiasRecomendadas = noticias;
         },
         error: err => {
           console.log(err);
@@ -35,9 +49,11 @@ export class DetallesNoticiaComponent {
     );
   }
 
+  obtenerNoticia(id: number): void {
+    this.enrutador.navigate(['/detalles', id]);
+  }
+
   volver(): void {
     this.enrutador.navigate(['/inicio']);
   }
-
-
 }

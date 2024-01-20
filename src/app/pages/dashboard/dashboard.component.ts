@@ -38,13 +38,12 @@ export class DashboardComponent implements OnInit {
   }
 
   //Obtener noticia
-//Obtener noticia
-obtenerNoticia(id: number | undefined){
-  if (id !== undefined) {
-    this.enrutador.navigate(['detalles', id]);
-  } else {
-    console.error('ID de noticia no definido');
+  obtenerNoticia(id: number | undefined){
+    if (id !== undefined) {
+      this.enrutador.navigate(['detalles', id]);
+    } else {
+      console.error('ID de noticia no definido');
+    }
   }
-}
 
 }

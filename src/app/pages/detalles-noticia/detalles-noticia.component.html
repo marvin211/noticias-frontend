@@ -10,3 +10,17 @@
     </div>
   </div>
 </div>
+
+<div class="container mb-2">
+  <h2 class="text-center">Noticias Recomendadas</h2>
+  <div class="d-flex justify-content-around flex-wrap">
+    <div class="card m-2" style="width: 18rem; cursor: pointer;" *ngFor="let noticiaRecomendada of noticiasRecomendadas" (click)="noticiaRecomendada.id !== undefined && obtenerNoticia(noticiaRecomendada.id)">
+      <img [src]="noticiaRecomendada.imagen" class="card-img-top" alt="{{ noticiaRecomendada.titulo }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ noticiaRecomendada.titulo }}</h5>
+        <p class="card-text">{{ noticiaRecomendada.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
